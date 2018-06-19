@@ -22,6 +22,7 @@ public:
 	std::string	darkest_secret;
 	
 	void	setContact(void);
+	void	show(void);
 };
 
 #endif

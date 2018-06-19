@@ -13,7 +13,7 @@ public:
 	
 	bool	add(void);
 	void	show(void);
-	Contact	getContact(int id);
+	void	showContact(int id);
 	int		getContactsCount(void);
 private:
 	Contact	_contacts[8];

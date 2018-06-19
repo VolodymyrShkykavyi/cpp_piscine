@@ -3,8 +3,24 @@
 int main(void)
 {
 	PhoneBook phonebook;
+	std::string command;
 
-	//std::cout << phonebook.getContactsCount();	
-	phonebook.add();
-	phonebook.show();
+	while(1) {
+		std::cout << "Available commands: ADD, SEARCH, EXIT" << std::endl;
+		getline(std::cin, command);
+
+		if (command == "ADD")
+            phonebook.add();
+		if (command == "SEARCH") {
+            std::string id;
+
+            phonebook.show();
+            std::cout << "Enter id to show more information: ";
+            getline(std::cin, id);
+            phonebook.showContact(std::stoi(id));
+        }
+        if (command == "EXIT")
+            return (0);
+	}
+    return (0);
 }
