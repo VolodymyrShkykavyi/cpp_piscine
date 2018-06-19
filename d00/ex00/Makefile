@@ -2,7 +2,7 @@ NAME = megaphone
 SRC = megaphone.cpp
 OBJ = $(SRC:.cpp=.o)
 FLAGS = -Wall -Werror -Wextra
-CC = g++
+CC = clang++
 
 all: $(NAME)
 $(NAME): $(OBJ)
