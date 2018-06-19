@@ -17,6 +17,9 @@ int main(void)
             phonebook.show();
             std::cout << "Enter id to show more information: ";
             getline(std::cin, id);
+            if (id.size() != 1 || !std::isdigit(id[0])) {
+                id = "-1";
+            }
             phonebook.showContact(std::stoi(id));
         }
         if (command == "EXIT")
