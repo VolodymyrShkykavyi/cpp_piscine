@@ -6,7 +6,7 @@ Zombie::Zombie(std::string type, std::string name)
 	this->_name = name;
 }
 
-Zombie::Zombie()
+Zombie::Zombie(void)
 {
 	std::string	names[5] = {"Kabachok", "Zagiblik", "Meison", "Random name", "Nalisnik"};
 
