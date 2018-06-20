@@ -1,13 +1,12 @@
 NAME = replace
 
-SRCS =	replace.cpp
+SRCS =	main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 CC = clang++
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
-
 $(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -o $@
 
