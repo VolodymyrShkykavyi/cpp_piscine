@@ -15,9 +15,10 @@ private:
 	unsigned int	_level;
 	std::string		_name;
 	unsigned int	_meleeAttackDamage;
-	unsigned int	_energyAttackDamage;
 	unsigned int	_rangedAttackDamage;
 	unsigned int	_armorDamageReduction;
+
+	void 			_setDefaultValues(void);
 
 public:
 	ScavTrap(void);
@@ -34,7 +35,6 @@ public:
 	unsigned int	getLevel(void) const;
 	std::string		getName(void) const;
 	unsigned int	getMeleeAttackDamage(void) const;
-	unsigned int	getEnergyAttackDamage(void) const;
 	unsigned int	getRangedAttackDamage(void) const;
 	unsigned int	getArmorDamageReduction(void) const;
 
@@ -43,13 +43,7 @@ public:
 	void			takeDamage(unsigned int amount);
 	void			beRepaired(unsigned int amount);
 
-	void			foodfight(std::string const & target);
-	void			hugFloran(std::string const & target);
-	void			playMusic(std::string const & target);
-	void			danceWithApex(std::string const & target);
-	void			playStarbound(std::string const & target);
 	void			challengeNewcomer(std::string const & target);
-
 };
 
 #endif

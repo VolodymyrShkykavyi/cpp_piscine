@@ -15,9 +15,10 @@ private:
 	unsigned int	_level;
 	std::string		_name;
 	unsigned int	_meleeAttackDamage;
-	unsigned int	_energyAttackDamage;
 	unsigned int	_rangedAttackDamage;
 	unsigned int	_armorDamageReduction;
+
+	void 			_setDefaultValues(void);
 
 public:
 	FragTrap(void);
@@ -34,7 +35,6 @@ public:
 	unsigned int	getLevel(void) const;
 	std::string		getName(void) const;
 	unsigned int	getMeleeAttackDamage(void) const;
-	unsigned int	getEnergyAttackDamage(void) const;
 	unsigned int	getRangedAttackDamage(void) const;
 	unsigned int	getArmorDamageReduction(void) const;
 
@@ -43,11 +43,6 @@ public:
 	void			takeDamage(unsigned int amount);
 	void			beRepaired(unsigned int amount);
 
-	void			sunblaster(std::string const & target);
-	void			wildPulsar(std::string const & target);
-	void			bubblegun(std::string const & target);
-	void			flowerBouquet(std::string const & target);
-	void			theDrumstick(std::string const & target);
 	void			vaulthunter_dot_exe(std::string const & target);
 
 };

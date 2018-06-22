@@ -1,45 +1,46 @@
+#ifndef CLAPTRAP_H
+#define CLAPTRAP_H
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#include <string>
+#include <iostream>
 
-# include <iostream>
-# include <string>
-
-class ClapTrap
-{
-protected:
-	unsigned int	_hitPoints;
-	unsigned int	_maxHitPoints;
-	unsigned int	_energyPoints;
-	unsigned int	_maxEnergyPoints;
-	unsigned int	_level;
-	std::string		_name;
-	unsigned int	_meleeAttackDamage;
-	unsigned int	_energyAttackDamage;
-	unsigned int	_rangedAttackDamage;
-	unsigned int	_armorDamageReduction;
-
+class ClapTrap {
 public:
-	ClapTrap(void);
+	ClapTrap();
 	ClapTrap(std::string name);
-	ClapTrap(ClapTrap const & src);
-	~ClapTrap(void);
+	ClapTrap(ClapTrap const &rfs);
+	~ClapTrap();
 
-	ClapTrap		& operator=(ClapTrap const & right);
+	ClapTrap 	&operator=(ClapTrap const &rfs);
 
-	unsigned int	getHitPoints(void) const;
-	unsigned int	getMaxHitPoints(void) const;
-	unsigned int	getEnergyPoints(void) const;
-	unsigned int	getMaxEnergyPoints(void) const;
-	unsigned int	getLevel(void) const;
+	int	getHitPoints(void) const;
+	int	getMaxHitPoints(void) const;
+	int	getEnergyPoints(void) const;
+	int	getMaxEnergyPoints(void) const;
+	int	getLevel(void) const;
 	std::string		getName(void) const;
-	unsigned int	getMeleeAttackDamage(void) const;
-	unsigned int	getEnergyAttackDamage(void) const;
-	unsigned int	getRangedAttackDamage(void) const;
-	unsigned int	getArmorDamageReduction(void) const;
+	int	getMeleeAttackDamage(void) const;
+	int	getRangedAttackDamage(void) const;
+	int	getArmorDamageReduction(void) const;
 
-	void			takeDamage(unsigned int amount);
-	void			beRepaired(unsigned int amount);
+	void		rangedAttack(std::string const &target) const;
+	void		meleeAttack(std::string const &target) const;
+	void		takeDamage(int amount);
+	void		beRepaired(int amount);
+
+protected:
+	std::string	_className;
+	int			_hitPoints;
+	int			_maxHitPoints;
+	int			_energyPoints;
+	int			_maxEnergyPoints;
+	int			_level;
+	std::string	_name;
+	int			_meleeAttackDamage;
+	int			_rangedAttackDamage;
+	int			_armorDamageReduction;
+
+	void 		_setDefaultValues(void);
 
 };
 
