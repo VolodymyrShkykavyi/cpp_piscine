@@ -35,10 +35,13 @@ Data * deserialize( void * raw )
 
 int main( void )
 {
-	Data	*data = deserialize(serialize());
+	Data *t;
+	void *r;
 
-	std::cout << "Data:" << std::endl;
-	std::cout << "  s1 -> " << data->s1 << std::endl;
-	std::cout << "  n  -> " << data->n << std::endl;
-	std::cout << "  s2 -> " << data->s2 << std::endl;
+	srand(std::time(0));
+	r = serialize();
+	t = deserialize(r);
+	std::cout << "s1: <" << t->s1 << ">" << std::endl;
+	std::cout << "n:  <" << t->n << ">" << std::endl;
+	std::cout << "s2: <" << t->s2 << ">" << std::endl;
 }

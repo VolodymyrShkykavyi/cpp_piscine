@@ -4,62 +4,77 @@
 #include <climits>
 #include <cfloat>
 #include <cmath>
+#include <exception>
+
+bool isLiteral(std::string literal) {
+	std::string literals[] = {"-inff", "+inff", "nanf", "-inf", "+inf", "nan"};
+
+	for (int i = 0; i < 6; i++) {
+		if (literals[i].compare(literal) == 0) {
+			return true;
+		}
+	}
+
+	return false;
+}
 
 int main(int argc, char **argv)
 {
 	if (argc != 2)
 	{
-		std::cout << "usage:  " << argv[0] << " <string>" << std::endl;
-		return (1);
+		std::cout << "Usage:  " << argv[0] << " <string>" << std::endl;
+		return (0);
 	}
-	std::string input(argv[1]);
-	if (input.size() == 1 && (input[0] < '0' || input[0] > '9') && isprint(input[0])) // parameter is char
+	
+	std::string str(argv[1]);
+
+	if (str.size() == 1 && (str[0] < '0' || str[0] > '9') && isprint(str[0]))
 	{
-		std::cout << "char: '" << input[0] << "'" << std::endl;
-		std::cout << "int: " << static_cast<int>(input[0]) << std::endl;
-		std::cout << "float: " << static_cast<float>(input[0]) << ".0f" << std::endl;
-		std::cout << "double: " << static_cast<double>(input[0]) << ".0" << std::endl;
+		std::cout << "char: '" << str[0] << "'" << std::endl;
+		std::cout << "int: " << static_cast<int>(str[0]) << std::endl;
+		std::cout << "float: " << static_cast<float>(str[0]) << ".0f" << std::endl;
+		std::cout << "double: " << static_cast<double>(str[0]) << ".0" << std::endl;
 	}
-	else // parameter is number
+	else
 	{
-		double	number;
-		if (input.size() > 1 && input.back() == 'f' && input[input.size() - 2] != 'n')
-			input.resize(input.size() - 1);
-		std::stringstream	ss(input);
-		ss >> number;
-		if (ss.fail() || !ss.eof())
-		{
-			std::cout << "char: impossible" << std::endl;
-			std::cout << "int: impossible" << std::endl;
-			std::cout << "float: impossible" << std::endl;
-			std::cout << "double: impossible" << std::endl;
-			return (0);
+		std::cout << "char: ";
+		try {
+			char c = static_cast<char>(std::stoi(str));
+
+			if (isprint(c))
+				std::cout << "'" << c << "'" << std::endl;
+			else {
+				std::cout << "Non displayable" << std::endl;
+			}
+		} catch (std::exception &ex) {
+			std::cout << "impossible" << std::endl;
 		}
 
-		//char
-		std::cout << "char: ";
-		if (number > CHAR_MAX || number < 0)
-			std::cout << "impossible" << std::endl;
-		else if (isprint(number))
-			std::cout << "'" << static_cast<char>(number) << "'" << std::endl;
-		else
-			std::cout << "Non displayable" << std::endl;
-
-		//int
 		std::cout << "int: ";
-		if (number > INT_MAX || number < INT_MIN || number != number)
-			std::cout << "impossible" << std::endl;
-		else
-			std::cout << static_cast<int>(number) << std::endl;
+		try {
+			int i = static_cast<int>(std::stoi(str));
 
-		//float
+			std::cout << i << std::endl;
+		} catch (std::exception &ex) {
+			std::cout << "impossible" << std::endl;
+		}
+
 		std::cout << "float: ";
-		if ((number > FLT_MAX || number < -FLT_MAX) && number == number && !std::isinf(number))
-			std::cout << "impossible" << std::endl;
-		else
-			std::cout << std::fixed << std::setprecision(1) << static_cast<float>(number) << "f" << std::endl;
+		try {
+			float f = static_cast<float>(std::stof(str));
 
-		//double
-		std::cout << "double: " << std::fixed << std::setprecision(1) << number << std::endl;
+			std::cout << std::setprecision(1) << std::fixed << f << "f" << std::endl;
+		} catch (std::exception &ex) {
+			std::cout << "impossible" << std::endl;
+		}
+
+		std::cout << "double: ";
+		try {
+			double d = static_cast<double>(std::stod(str));
+
+			std::cout << d << std::endl;
+		} catch (std::exception &e) {
+			std::cout << "impossible" << std::endl;
+		}
 	}
 }
