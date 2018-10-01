@@ -7,8 +7,15 @@ int main(void)
 
 	while(1) {
 		std::cout << "Available commands: ADD, SEARCH, EXIT" << std::endl;
-		getline(std::cin, command);
+		if (!getline(std::cin, command)){
+            break;
+		}
 
+		if (std::cin.eof() == 1) {
+		    std::cin.clear();
+		    std::cin.ignore();
+            continue;
+		}
 		if (command == "ADD")
             phonebook.add();
 		if (command == "SEARCH") {
@@ -16,7 +23,9 @@ int main(void)
 
             phonebook.show();
             std::cout << "Enter id to show more information: ";
-            getline(std::cin, id);
+            if (!getline(std::cin, id)){
+                break;
+            }
             if (id.size() != 1 || !std::isdigit(id[0])) {
                 id = "-1";
             }
