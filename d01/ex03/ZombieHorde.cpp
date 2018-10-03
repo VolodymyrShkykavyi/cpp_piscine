@@ -2,6 +2,7 @@
 
 ZombieHorde::ZombieHorde(int n)
 {
+	n = n < 0 ? 0 : n;
 	this->_horde = new Zombie[n];
 	this->_count = n;
 }

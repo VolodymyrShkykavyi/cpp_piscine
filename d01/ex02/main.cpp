@@ -23,7 +23,7 @@ int	main()
 	}
 	
 	// stack
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 5; i++)
 		zombie_empire.randomChump();
 
 	zombie_alliance.randomChump();

@@ -33,6 +33,7 @@ int main(int argc, char **argv)
 		text.replace(start, from.length(), to);
 		start += to.length();
 	}
+
 	std::ofstream myfile;
 	myfile.open(file + ".replace");
 	if (!myfile.is_open())
