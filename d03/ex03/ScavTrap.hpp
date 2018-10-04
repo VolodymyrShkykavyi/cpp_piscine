@@ -13,6 +13,7 @@ public:
 	ScavTrap(std::string name);
 	ScavTrap(ScavTrap const & src);
 	~ScavTrap(void);
+    ScavTrap		& operator=(ScavTrap const & right);
 
 	void	challengeNewcomer(std::string const & target);
 
