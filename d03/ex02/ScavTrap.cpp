@@ -39,6 +39,19 @@ ScavTrap::~ScavTrap()
 	std::cout << "SCAV-TP <" << this->_name << "> is going to hell... R.I.P." << std::endl;
 }
 
+ScavTrap& ScavTrap::operator=(ScavTrap const &rhs) {
+    this->_hitPoints = rhs.getHitPoints();
+    this->_maxHitPoints = rhs.getMaxHitPoints();
+    this->_energyPoints = rhs.getEnergyPoints();
+    this->_maxEnergyPoints = rhs.getMaxEnergyPoints();
+    this->_level = rhs.getLevel();
+    this->_name = rhs.getName();
+    this->_meleeAttackDamage = rhs.getMeleeAttackDamage();
+    this->_rangedAttackDamage = rhs.getRangedAttackDamage();
+    this->_armorDamageReduction = rhs.getArmorDamageReduction();
+    return (*this);
+}
+
 void	ScavTrap::challengeNewcomer(std::string const & target)
 {
 	std::string	challenges[] = {
