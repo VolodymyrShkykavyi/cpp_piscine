@@ -2,14 +2,14 @@
 
 Fixed::Fixed()
 {
+    std::cout << "Default constructor called" << std::endl;
 	this->_value = 0;
-	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(Fixed const &number)
 {
+    std::cout << "Copy constructor called" << std::endl;
 	*this = number;
-	std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed::Fixed(int const number): _value(number << Fixed::_fract)

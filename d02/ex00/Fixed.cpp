@@ -2,14 +2,14 @@
 
 Fixed::Fixed()
 {
-	this->_value = 0;
-	std::cout << "Default constructor called" << std::endl;
+    std::cout << "Default constructor called" << std::endl;
+    this->_value = 0;
 }
 
 Fixed::Fixed(Fixed const &number)
 {
-	*this = number;
-	std::cout << "Copy constructor called" << std::endl;
+    std::cout << "Copy constructor called" << std::endl;
+    *this = number;
 }
 
 Fixed::~Fixed()

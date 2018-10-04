@@ -26,7 +26,7 @@ public:
 	int		toInt(void) const;
 	float	toFloat(void) const;
 
-	friend std::ostream	&operator<<(std::ostream& stream, Fixed const &number);
 };
 
+std::ostream	&operator<<(std::ostream& stream, Fixed const &number);
 #endif
