@@ -6,7 +6,7 @@
 # include <string>
 # include "ClapTrap.hpp"
 
-class FragTrap: public ClapTrap
+class FragTrap: virtual public ClapTrap
 {
 
 public:
@@ -17,6 +17,7 @@ public:
     FragTrap		& operator=(FragTrap const & right);
 
 	void	vaulthunter_dot_exe(std::string const & target);
+    void		rangedAttack(std::string const &target) const;
 
 protected:
 	void 		_setDefaultValues(void)  ;

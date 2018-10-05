@@ -38,26 +38,28 @@ int main( void )
 	std::cout << pig.getName() << " has " << pig.getHitPoints() << " health left." << std::endl;
 
 	ScavTrap apex("Apex");
-	ScavTrap novakid("Novakid");
+	ScavTrap dovakin("Dovakin");
 
 	apex.challengeNewcomer(bee.getName());
-	novakid.challengeNewcomer(pig.getName());
+	dovakin.challengeNewcomer(pig.getName());
 	apex.challengeNewcomer(cow.getName());
-	novakid.challengeNewcomer(apex.getName());
+	dovakin.challengeNewcomer(apex.getName());
 
 	apex.rangedAttack(cow.getName());
 	cow.takeDamage(apex.getRangedAttackDamage());
 
-	pig.vaulthunter_dot_exe(novakid.getName());
-	novakid.takeDamage(rand());
+	pig.vaulthunter_dot_exe(dovakin.getName());
+	dovakin.takeDamage(rand());
 
-	novakid.meleeAttack(apex.getName());
-	apex.takeDamage(novakid.getMeleeAttackDamage());
+	dovakin.meleeAttack(apex.getName());
+	apex.takeDamage(dovakin.getMeleeAttackDamage());
 
-	std::cout << cow.getName() << " has " << cow.getHitPoints() << " health left." << std::endl;
+    std::cout << cow.getName() << " has " << cow.getHitPoints() << " health left." << std::endl;
 	std::cout << bee.getName() << " has " << bee.getHitPoints() << " health left." << std::endl;
 	std::cout << pig.getName() << " has " << pig.getHitPoints() << " health left." << std::endl;
 	std::cout << apex.getName() << " has " << apex.getHitPoints() << " health left." << std::endl;
-	std::cout << novakid.getName() << " has " << novakid.getHitPoints() << " health left." << std::endl;
+	std::cout << dovakin.getName() << " has " << dovakin.getHitPoints() << " health left." << std::endl;
+
+
 
 }

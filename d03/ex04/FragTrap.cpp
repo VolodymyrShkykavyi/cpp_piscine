@@ -64,3 +64,9 @@ void	FragTrap::vaulthunter_dot_exe(std::string const &target)
 	}
 	return ;
 }
+
+void FragTrap::rangedAttack(std::string const &target) const {
+    std::cout << this->_className << " <" << this->_name << "> attacks " << target <<
+              " with Bow (from FragTrap), causing " << this->_rangedAttackDamage << " points of damage!" << std::endl;
+
+}

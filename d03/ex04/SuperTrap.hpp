@@ -6,7 +6,7 @@
 #include "FragTrap.hpp"
 #include "NinjaTrap.hpp"
 
-class SuperTrap: public FragTrap, public NinjaTrap
+class SuperTrap: virtual public FragTrap, virtual public NinjaTrap
 {
 public:
     SuperTrap();
@@ -15,8 +15,12 @@ public:
     ~SuperTrap();
     SuperTrap		& operator=(SuperTrap const & right);
 
+    void		rangedAttack(std::string const &target) const;
+    void		meleeAttack(std::string const &target) const;
+
 protected:
     void    _setDefaultValues(void);
+
 };
 
 #endif

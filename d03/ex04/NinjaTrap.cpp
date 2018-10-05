@@ -2,7 +2,7 @@
 
 void	NinjaTrap::_setDefaultValues()
 {
-	this->_hitPoints = 60;
+	_hitPoints = 60;
 	this->_maxHitPoints = 60;
 	this->_energyPoints = 120;
 	this->_maxEnergyPoints = 120;

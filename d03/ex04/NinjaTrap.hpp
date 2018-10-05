@@ -8,7 +8,7 @@
 # include <iostream>
 # include <string>
 
-class NinjaTrap: public ClapTrap
+class NinjaTrap: virtual public ClapTrap
 {
 public:
 	NinjaTrap(void);
