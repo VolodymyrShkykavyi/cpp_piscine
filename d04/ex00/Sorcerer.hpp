@@ -1,12 +1,13 @@
 #ifndef SORCERER_HPP
 # define SORCERER_HPP
 
+#include "Victim.hpp"
 #include <string>
 #include <iostream>
-#include <ctime>
-#include <iomanip>
-#include <sstream>
-#include <fstream>
+//#include <ctime>
+//#include <iomanip>
+//#include <sstream>
+//#include <fstream>
 
 class Sorcerer
 {

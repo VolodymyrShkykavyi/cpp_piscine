@@ -2,61 +2,58 @@
 #include "Sorcerer.hpp"
 #include "Victim.hpp"
 #include <iostream>
-#define CALL_MEMBER_FN(object,ptrToMember)  ((object)->*(ptrToMember))
 
-class Cat: public Victim {
-public:
-    Cat(std::string name);    
-    virtual ~Cat(void); // Canonical
-    void getPolymorphed(void) const;    
-private:
-    Cat(void); // Canonical constructor default (void!!!!!!)
-};
+//class Pig: public Victim {
+//public:
+//    Pig(std::string name);
+//    virtual ~Pig(void);
+//    void getPolymorphed(void) const;
+//private:
+//    Pig(void);
+//};
+//
+//Pig::Pig(std::string name): Victim(name) {
+//    this->_name = name;
+//    std::cout << "Pig created " << std::endl;
+//}
+//
+//void Pig::getPolymorphed(void) const {
+//    std::cout << this->_name << " has been turned into phoenix(salo)!" << std::endl;
+//}
+//Pig::~Pig(void) {
+//    std::cout << "Pig go to dinner..." << std::endl;
+//}
+//
+//class Cow: public Victim {
+//public:
+//    Cow(std::string name);
+//    virtual ~Cow(void);
+//    void getPolymorphed(void) const;
+//private:
+//    Cow(void);
+//};
+//
+//Cow::Cow(std::string name): Victim(name) {
+//    this->_name = name;
+//    std::cout << "Cow created " << std::endl;
+//}
 
-Cat::Cat(std::string name): Victim(name) {
-    this->name = name;
-    std::cout << "cat created " << std::endl;
-}
+//void Cow::getPolymorphed(void) const {
+//    std::cout << this->_name << " has been turned into horse !" << std::endl;
+//}
+//Cow::~Cow(void) {
+//    std::cout << "Cow die on the field..." << std::endl;
+//}
 
-void Cat::getPolymorphed(void) const {
-    std::cout << this->name << " has been turned into a red dog!" << std::endl;
-}
-Cat::~Cat(void) {
-    std::cout << "cat is resting forever..." << std::endl;
-}
-
-class Soldiers: public Victim {
-public:
-    Soldiers(std::string name);    
-    virtual ~Soldiers(void); // Canonical
-    void getPolymorphed(void) const;    
-private:
-    Soldiers(void); // Canonical constructor default (void!!!!!!)
-};
-
-Soldiers::Soldiers(std::string name): Victim(name) {
-    this->name = name;
-    std::cout << "soldiers created " << std::endl;
-}
-
-void Soldiers::getPolymorphed(void) const {
-    std::cout << this->name << " has been turned into a purple horse !" << std::endl;
-}
-Soldiers::~Soldiers(void) {
-    std::cout << "Soldiers die on the field..." << std::endl;
-}
-
-int     main(void) {
-
+int main()
+{
     Sorcerer robert("Robert", "the Magnificent");
     Victim jim("Jimmy");
     Peon joe("Joe");
-    Cat figaro("figaro");
-    Soldiers arnold("Arnold");
-    std::cout << robert << jim << joe;
+    Pig pig("piiig");
+    std::cout << robert << jim << joe << pig;
     robert.polymorph(jim);
-    robert.polymorph(figaro);
-    robert.polymorph(arnold);
     robert.polymorph(joe);
-    return (0);
+//    robert.polymorph(pig);
+    return 0;
 }
