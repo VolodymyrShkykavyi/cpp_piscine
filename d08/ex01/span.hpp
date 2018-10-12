@@ -1,27 +1,31 @@
 #ifndef SPAN_HPP
-# define SPAN_HPP
+#define SPAN_HPP
 
-# include <vector>
-# include <iterator>
+#include <vector>
+#include <iterator>
+#include <algorithm>
+#include <iostream>
 
 class Span
 {
 	private:
-		Span(void);
-		std::vector<int>	_range;
+		Span();
+		std::vector<int>	_arr;
 		unsigned int		_n;
 
 	public:
-		~Span(void);
-		Span(unsigned int);
-		Span(Span const &);
-		Span & operator=(Span const &);
+		~Span();
+		Span(unsigned int n);
+		Span(Span const &src);
+		Span & operator=(Span const &src);
 
-		unsigned int		shortestSpan(void);
-		unsigned int		longestSpan(void);
-		void				addNumber(int);
-		void				addNumber(std::vector<int>::iterator, std::vector<int>::iterator);
-		void				print(void);
+		unsigned int shortestSpan();
+		unsigned int longestSpan();
+		void addNumber(int n);
+		void addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator last);
+		void addNumber(int begin, int last);
+
+		void print();
 };
 
 #endif

@@ -4,31 +4,25 @@
 
 int main()
 {
-	std::list<int> int_array;
+	std::list<int> arr;
 
-	int_array.push_back(1);
-	int_array.push_back(4);
-	int_array.push_back(3);
-	int_array.push_back(9);
-	int_array.push_back(156);
+	arr.push_back(-1);
+	arr.push_back(0);
+	arr.push_back(1);
+	arr.push_back(4);
+	arr.push_back(34);
 
-	if (easyfind(int_array, 1))
-		std::cout << "1 exist in int_array\n";
-	else
-		std::cout << "1 is not in array\n";
+    try {
+        std::cout << std::boolalpha
+        << "0: " << easyfind(arr, 0) << std::endl
+        << "-1: " << easyfind(arr, -1) << std::endl
+        << "4: " << easyfind(arr, 4) << std::endl
+        << "34: " << easyfind(arr, 34) << std::endl
+        << "123: " << easyfind(arr, 123) << std::endl;
 
-	if (easyfind(int_array, 156))
-		std::cout << "156 exist in int_array\n";
-	else
-		std::cout << "156 is not in array\n";
+    }
+    catch (std::exception &e){
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
 
-	if (easyfind(int_array, 1424897))
-		std::cout << "1424897 exist in int_array\n";
-	else
-		std::cout << "1424897 is not in array\n";
-
-	if (easyfind(int_array, -7))
-		std::cout << "-7 exist in int_array\n";
-	else
-		std::cout << "-7 is not in array\n";
 }
