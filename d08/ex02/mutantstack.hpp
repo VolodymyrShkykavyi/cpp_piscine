@@ -1,30 +1,53 @@
 #ifndef MUTANTSTACK_HPP
 # define MUTANTSTACK_HPP
-# include <iostream>
 
-class mutantstack {
-	private:
-	protected:
-	public:
-		/* Constructors - do not delete the default constructor (void) */
-		mutantstack(void);
-		// class ERROR: public std::exception {
-		// 	public:
-		// 		ERROR(void);
-		// 		ERROR(ERROR const & src);
-		// 		ERROR& operator=(ERROR const & rhs);
-		// 		virtual ~ERROR(void) throw();
-		//  };
-		/* function members (or methods) */
+#include <stack>
+#include <vector>
+#include <list>
 
-		/* override */
-		mutantstack(mutantstack const & src);
-		mutantstack& operator=(mutantstack const & rhs);
+template<typename T>
+class MutantStack : public std::stack<T> {
 
-		/* Destructors */
-		virtual ~mutantstack(void);
+private:
+
+	std::vector<T> 		 _vec;
+
+public:
+
+	MutantStack() {};
+
+	MutantStack(MutantStack const& rhs) {
+		*this = rhs;
+	};
+
+	MutantStack& operator=(MutantStack const& rhs) {
+		_vec = rhs._vec;
+		return *this;
+	};
+	
+	~MutantStack() {};
+
+	typedef typename std::vector<T>::iterator iterator;
+	
+	iterator begin() {
+		return _vec.begin();
+	}
+	
+	iterator end(){
+		return _vec.end();
+	}
+		void	 push(T x) {
+		_vec.push_back(x);
+	}
+
+	void	 pop() {
+		_vec.pop_back();
+	}
+
+	T		top() {
+		return *(_vec.end() - 1);
+	}
+
 };
-
-std::ostream& operator<<(std::ostream& out, mutantstack const &i);
 
 #endif
